@@ -1,61 +1,93 @@
-$(function() {
+(function() {
+
     var people = [{
             name: 'Клара',
             rate: 60
         },
         {
-            name: 'Камилла',
+            name: 'Камила',
             rate: 80
         },
         {
             name: 'Григорий',
-            rate: 95
-        },
-        {
-            name: 'Лаврентий',
-            rate: 65
-        },
-        {
-            name: 'Софачка',
             rate: 75
         },
         {
-            name: 'Алексей',
-            rate: 70
+            name: 'Софи',
+            rate: 65
+        },
+        {
+            name: 'Флекс',
+            rate: 20
+        },
+        {
+            name: 'Алекс',
+            rate: 30
+        },
+        {
+            name: 'Иосиф',
+            rate: 90
+        },
+        {
+            name: 'Мантий',
+            rate: 10
         }
     ];
 
 
-    // forEach //
-
-    // var results = [];
-    // people.forEach(function(person) {  
-    //     if (person.rate >= 65 && person.rate <= 90) {
-    //         results.push(person);
-    //     }
-    // });
+    var rows = [],
+        $min = $('#value-min'),
+        $max = $('#value-max'),
+        $table = $('#rates');
 
 
-    // filter //
-
-    function priceRange(person) {
-        return (person.rate >= 65) && (person.rate <= 90);
-    };
-
-    var results = [];
-    results = people.filter(priceRange);
-
-
-    var $tableBody = $('<tbody></tbody>');
-    for (var i = 0; i < results.length; i++) {
-        var person = results[i];
-        var $row = $('<tr></tr>');
-        $row.append($('<td></td>').text(person.name));
-        $row.append($('<td></td>').text(person.rate));
-        $tableBody.append($row);
+    function makeRows() {
+        people.forEach(function(person) {
+            var $row = $('<tr></tr>');
+            $row.append($('<td></td>').text(person.name));
+            $row.append($('<td></td>').text(person.rate));
+            rows.push({
+                person: person,
+                $element: $row
+            });
+        });
     }
 
-    $('thead').after($tableBody);
+    function appendRows() {
+        var $tbody = $('<tbody></tbody>');
+        rows.forEach(function(row) {
+            $tbody.append(row.$element);
+        });
+        $table.append($tbody);
+    }
 
 
-});
+    function update(min, max) {
+        rows.forEach(function(row) {
+            if (row.person.rate >= min && row.person.rate <= max) {
+                row.$element.show(800);
+            }
+            else {
+                row.$element.hide(800);
+            }
+        });
+    }
+
+
+    function init() {
+        $('#slider').noUiSlider({
+            range: [0, 150],
+            start: [65, 90],
+            handles: 2,
+            margin: 20,
+            connect: true,
+            serialization: { to: [$min, $max], resolution: 1 }
+        }).change(function() { update($min.val(), $max.val()); });
+        makeRows();
+        appendRows();
+        update($min.val(), $max.val());
+    }
+
+    $(init);
+
+}());
