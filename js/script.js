@@ -1,20 +1,15 @@
-var items = [
-    { name: 'Edward', value: 21 },
-    { name: 'Sharpe', value: 37 },
-    { name: 'And', value: 45 },
-    { name: 'The', value: -12 },
-    { name: 'Magnetic' },
-    { name: 'Zeros', value: 37 }
+var holidays = [
+     '2014-12-21',
+     '2014-09-28',
+     '2014-01-31',
+     '2014-05-12',
+     '2014-07-01'
 ];
-items.sort(function(a, b) {
-    if (a.value > b.value) {
-        return 1;
-    }
-    if (a.value < b.value) {
-        return -1;
-    }
-    // a должно быть равным b
-    return 0;
+holidays.sort(function(a, b) {
+    var dateA = new Date(a);
+    var dateB = new Date(b);
+    
+    return dateA - dateB;
 });
 
-console.log(items);
+console.log(holidays);
