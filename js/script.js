@@ -1,8 +1,8 @@
 var compare = {
 
     name: function(a, b) {
-        a = a.replase(/^the/i, '');
-        b = b.replase(/^the/i, '');
+        a = a.replace(/^the /i, '');
+        b = b.replace(/^the /i, '');
 
         if (a < b) {
             return -1;
