@@ -31,3 +31,13 @@ var compare = {
         return a - b;
     }
 };
+
+
+$('.sortable').each(function() {
+    var $table = $(this); // Это сортируемая таблица
+    var $tbody = $table.find('tbody'); // Сохраняем тело таблицы
+    var $controls = $table.find('th'); // Сохраняем заголовки таблицы
+    var rows = $tbody.find('tr').toArray();
+
+    
+});
