@@ -1,30 +1,31 @@
 (function() {
+    var form = document.getElementById('newPwd');
+    var password = document.getElementById('pwd');
+    var submit = document.getElementById('submit');
 
-    var pwd = document.getElementById('pwd');
-    var chk = document.getElementById('showPwd');
+    var submitted = false;
 
-    addEvent(chk, 'change', function(e) {
+    submit.disabled = true;
+    submit.className = 'disabled';
+
+    addEvent(password, 'input', function(e) {
         var target = e.target || e.srcElement;
-        try {
-            if (target.checked) {
-                pwd.type = 'text';
-            }
-            else {
-                pwd.type = 'password';
-            }
-        }
-        catch (error) {
-            alert('Браузер не умеет переключать типы');
-        }
+        submit.disabled = submitted || !target.value;
+
+        submit.className = (submitted || !target.value) ? 'disabled' : 'enabled';
     });
 
-    var form = document.getElementById('login');
-
     addEvent(form, 'submit', function(e) {
+        if (submit.disabled || submitted) {
+            e.preventDefault();
+            return;
+        }
+
+        submit.disabled = true;
+        submitted = true;
+        submit.className = 'disabled';
+
         e.preventDefault();
-        var elements = this.elements;
-        var username = elements.username.value;
-        var msg = 'Welcome, ' + username;
-        document.getElementById('main').textContent = msg;
+        alert('Password is ' + password.value);
     });
 }());
