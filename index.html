@@ -10,16 +10,17 @@
 <body>
 
   <div class="container login">
-    <form id="newPwd" action="/login" method="post">
+    <form id="interests" action="/login" method="post">
       <div class="one-third column">
         <img src="img/logo.png" alt="логотип" id="logo" />
       </div>
       <div class="two-thirds column" id="main">
         <fieldset>
-          <legend>Сброс пароля</legend>
-          <label for="pwd">Новый пароль:</label>
-          <input type="password" id="pwd" />
-          <input type="submit" id="submit" value="Подтвердить" />
+          <legend>Жанры</legend>
+          <label><input type="checkbox" value="all" id="all">Любые</label>
+          <label><input type="checkbox" name="genre" value="animation">Анимационные</label>
+          <label><input type="checkbox" name="genre" value="docs">Документальные</label>
+          <label><input type="checkbox" name="genre" value="shorts">Короткометражные</label>
         </fieldset>
       </div>
       <!-- .two-thirds -->
