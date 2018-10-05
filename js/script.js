@@ -17,13 +17,13 @@
 
     addEvent(type, 'change', function() {
         if (this.value === 'choose') {
-            model.innerHTML = '<option>Please choose a type first</option>';
+            model.innerHTML = '<option>Выберите модель!</option>';
             return;
         }
 
         var models = getModels(this.value);
 
-        var options = '<option>Please choose a model</option>';
+        var options = '<option>Выберите модель</option>';
         for (var key in models) {
             options += '<option value="' + key + '">' + models[key] + '</option>';
         }
