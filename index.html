@@ -10,24 +10,23 @@
 <body>
 
   <div class="container login">
-    <form id="how-heard" action="/heard" method="post">
+    <form name="howHeard" id="howHeard" action="/heard" method="post">
       <div class="one-third column">
         <img src="img/logo.png" alt="логотип" id="logo" />
       </div>
       <div class="two-thirds column" id="main">
         <fieldset>
-          <legend>Откуда вы узнали о нас?</legend>
-
-          <input type="radio" name="heard" value="search" id="search" />
-          <label for="search">Поисковая система</label><br>
-
-          <input type="radio" name="heard" value="print" id="print" />
-          <label for="print">Газета или журнал</label><br>
-
-          <input type="radio" name="heard" value="other" id="other" />
-          <label for="other">Другое</label><br>
-          <input type="text" name="other-input" id="other-text" />
-
+          <legend>Оборудование</legend>
+          <label for="equipmentType">Тип</label>
+          <select id="equipmentType" name="equipmentType">
+                <option value="choose">Выберите вариант</option>
+                <option value="cameras">Камера</option>
+                <option value="projectors">Проектор</option>
+              </select><br>
+          <label for="model">Модель</label>
+          <select id="model" name="model">
+                <option>Сначала выберите тип</option>
+              </select>
           <input id="submit" type="submit" value="Подтвердить" />
         </fieldset>
       </div>
