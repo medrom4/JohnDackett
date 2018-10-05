@@ -9,6 +9,22 @@
             bioCount.className = 'hide';
         }
     });
-    
-    
+
+    function updateCounter(e) {
+        var target = e.target || e.target;
+        var count = 140 - target.value.length;
+
+        if (count < 0) {
+            bioCount.className = 'error';
+        }
+        else if (count <= 15) {
+            bioCount.className = 'warn';
+        }
+        else {
+            bioCount.className = 'good';
+        }
+
+        var charMsg = '<b>' + count + '</b>' + ' characters';
+        bioCount.innerHTML = charMsg;
+    }
 }());
