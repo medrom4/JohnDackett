@@ -1,39 +1,7 @@
-(function() {
-    if ('placeholder' in document.createElement('input')) {
-        return;
+yepnope({
+    test: Modernizr.inputtypes.number,
+    nope: ['js/numPolyfill.js', 'css/number.css'],
+    complete: function() {
+        console.log('Всё сработало, отдыхай давай!');    
     }
-
-    var length = document.forms.length;
-    for (var i = 0; i < length; i++) {
-        showPlaceholder(document.forms[i].elements);
-    }
-
-    function showPlaceholder(elements) {
-        for (var i = 0; i < elements.length; i++) {
-            var el = elements[i];
-            if (!el.placeholder) {
-                continue;
-            }
-
-            el.style.color = '#666666';
-            el.value = el.placeholder;
-
-            addEvent(el, 'focus', function() {
-                if (this.value === this.placeholder) {
-                    this.value = '';
-                    this.style.color = '#000000';
-                }
-            });
-
-            addEvent(el, 'blur', function() {
-                if (this.value = '') {
-                    this.value = this.placeholder;
-                    this.style.color = '#666666';
-                }
-            });
-
-        }
-    }
-
-
-}());
+});
