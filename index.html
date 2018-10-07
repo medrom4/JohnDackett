@@ -8,29 +8,26 @@
 </head>
 
 <body>
-
   <div class="container">
-    <form method="post" action="/register">
+    <form name="login" action="/login" method="post">
       <div class="two-thirds column" id="main">
         <fieldset>
-          <legend>Регистрация</legend>
-          <label for="username">Логин:</label>
-          <input type="text" id="username" name="username" placeholder="имя_пользователя" />
-          <label for="email">Адрес электронной почты:</label>
-          <input type="email" id="email" name="email" placeholder="mail@mail.ru" />
-          <label for="dob">Дата рождения:</label>
-          <input type="text" id="dob" name="dob" placeholder="гггг-мм-дд" />
-          <input type="submit" value="Регистрация" />
+          <legend>Авторизация</legend>
+          <label for="age">Укажите свой возраст:</label>
+          <input type="number" id="age" />
+          <input type="submit" value="Далее" id="submit" />
         </fieldset>
       </div>
       <!-- .two-thirds -->
     </form>
   </div>
   <!-- .container -->
+</body>
 
-  <script src="js/jquery-1.11.0.min.js"></script>
-  <script src="js/utilities.js"></script>
-  <script src="js/script.js"></script>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/yepnope.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 
