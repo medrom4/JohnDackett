@@ -8,25 +8,55 @@
 </head>
 
 <body>
+
+
   <div class="container">
-    <form name="login" action="/login" method="post">
-      <div class="two-thirds column" id="main">
-        <fieldset>
-          <legend>Авторизация</legend>
-          <label for="age">Укажите свой возраст:</label>
-          <input type="number" id="age" min='1' max='150' />
-          <input type="submit" value="Далее" id="submit" />
-        </fieldset>
+    <form method="post" action="/register" name="register">
+      <div class="one-third column">
+        <h2>Регистрация</h2>
+        <div class="name">
+          <label for="name" class="required">Имя:</label>
+          <input type="text" placeholder="Введите имя" name="name" id="name" required title="Введите свое имя">
+        </div>
+        <div class="email">
+          <label for="email" class="required">Адрес электронной почты:</label>
+          <input type="email" placeholder="mail@mail.ru" name="email" id="email" required>
+        </div>
+        <div class="password">
+          <label for="password" class="required">Пароль:</label>
+          <input type="password" name="password" id="password" required>
+        </div>
+        <div class="password">
+          <label for="conf-password" class="required">Повторите пароль:</label>
+          <input type="password" name="conf-password" id="conf-password" required>
+        </div>
       </div>
-      <!-- .two-thirds -->
+      <div class="one-third column">
+        <h2>Профиль</h2>
+        <div class="birthday">
+          <label for="birthday" class="required">Дата рождения:</label>
+          <input type="date" name="birthday" id="birthday" placeholder="гггг-мм-дд" required>
+          <div id="consent-container" class="hide">
+            <label for="parents-consent">Установите флажок, если регистрация несовершеннолетнего подтверждается родителями:</label>
+            <input type="checkbox" name="parents-consent" id="parents-consent">
+          </div>
+        </div>
+        <div class="bio">
+          <label for="bio">О себе (не более 140 символов):</label>
+          <textarea name="bio" id="bio" rows="5" cols="30"></textarea>
+          <span id="bio-count" class="hide">140</span>
+        </div>
+        <div class="register"><input type="submit" value="Регистрация"></div>
+      </div>
     </form>
   </div>
   <!-- .container -->
-</body>
+
 
 <script src="js/jquery-1.11.0.min.js"></script>
-<script src="js/modernizr.js"></script>
-<script src="js/yepnope.js"></script>
+<script src="js/jquery-ui-1.10.3.custom.js"></script>
+<script src="js/utilities.js"></script>
+
 <script src="js/script.js"></script>
 
 </body>
